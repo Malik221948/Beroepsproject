@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin - Campingbeheer</title>
+  <link rel="stylesheet" href="adminstyle.css">
+  <script src="adminjs.js"></script>
+  
+</head>
+
+<body>
+  <h1>Admin - Campingbeheer</h1>
+  <div class="container">
+    <div class="camping-info">
+      <h2>Campinginformatie</h2>
+      <p>Aantal beschikbare plekken: <span id="plekken-counter">100</span></p>
+      <div class="plekken-form">
+        <label for="aantal-plekken">Aantal plekken aanpassen:</label>
+        <input type="number" id="aantal-plekken" min="0">
+        <button id="plekken-aanpassen">Opslaan</button>
+      </div>
+    </div>
+
+    <div class="calendar">
+      <button onclick="toggleCalendar()">Open Calendar</button>
+      <div id="calendar" class="calendar-content">
+        <table>
+          <thead>
+            <tr>
+              <th>Ma</th>
+              <th>Di</th>
+              <th>Wo</th>
+              <th>Do</th>
+              <th>Vr</th>
+              <th>Za</th>
+              <th>Zo</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="unavailable" onclick="toggleAvailability(this)">1</td>
+              <td class="available" onclick="toggleAvailability(this)">2</td>
+              <td class="available" onclick="toggleAvailability(this)">3</td>
+              <td class="unavailable" onclick="toggleAvailability(this)">4</td>
+              <td class="available" onclick="toggleAvailability(this)">5</td>
+              <td class="unavailable" onclick="toggleAvailability(this)">6</td>
+              <td class="unavailable" onclick="toggleAvailability(this)">7</td>
+            </tr>
+            <tr>
+              <td class="unavailable" onclick="toggleAvailability(this)">8</td>
+              <td class="available" onclick="toggleAvailability(this)">9</td>
+              <td class="available" onclick="toggleAvailability(this)">10</td>
+              <td class="unavailable" onclick="toggleAvailability(this)">11</td>
+              <td class="available" onclick="toggleAvailability(this)">12</td>
+              <td class="unavailable" onclick="toggleAvailability(this)">13</td>
+              <td class="unavailable" onclick="toggleAvailability(this)">14</td>
+            </tr>
+            <!-- ... and so on for the rest of the month -->
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="formu">
+      <h1>Reserveringsformulier</h1>
+      <label for="naam">Volledige Naam</label>
+      <div class="tww2">
+        <input type="text" name="naam" placeholder="Naam">
+        <input type="text" name="achternaam" placeholder="Achternaam">
+      </div>
+
+      <label for="email">E-mail</label>
+      <input type="email" name="email" placeholder="E-mail">
+
+      <label for="telefoon">Telefoonnummer</label>
+      <input type="text" name="telefoon" placeholder="061234567">
+
+      <label for="aantalvolwassenen">Aantal volwassenen</label>
+      <input type="number" name="aantalvolwassenen" id="twi">
+
+      <label for="aantalkinderen">Aantal kinderen</label>
+      <input type="number" name="aantalkinderen" id="twi">
+
+      <label for="accommodatie">Accommodatie</label>
+      <select id="accommodatie" name="accommodatie" required>
+        <option value="" disabled selected>--Selecteer een accommodatie--</option>
+        <option value="Cabins">Cabins</option>
+        <option value="Tents">Tents</option>
+        <option value="RV Sites">RV Sites</option>
+      </select>
+
+      <label for="wensen">Speciale wensen</label>
+      <textarea name="wensen" rows="5" cols="30" placeholder="Nog speciale wensen?"></textarea>
+
+      <input type="submit" value="Verzenden">
+    </div>
+  </div>
+
+</body>
+
+</html>

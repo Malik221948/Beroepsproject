@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Datumkalender</title>
+    <style>
+        .calendar {
+            display: none;
+            position: absolute;
+            border: 1px solid #ccc;
+            background-color: #fff;
+            padding: 10px;
+            z-index: 999;
+        }
+        .calendar table {
+            width: 100%;
+        }
+        .calendar th, .calendar td {
+            text-align: center;
+            padding: 5px;
+            cursor: pointer;
+        }
+        .available {
+            background-color: lightgreen;
+        }
+        .unavailable {
+            background-color: lightcoral;
+        }
+    </style>
+    <script>
+        function toggleCalendar() {
+            var calendar = document.getElementById("calendar");
+            if (calendar.style.display === "none") {
+                calendar.style.display = "block";
+            } else {
+                calendar.style.display = "none";
+            }
+        }
+
+        function toggleAvailability(element) {
+            if (element.classList.contains("available")) {
+                element.classList.remove("available");
+                element.classList.add("unavailable");
+            } else if (element.classList.contains("unavailable")) {
+                element.classList.remove("unavailable");
+                element.classList.add("available");
+            }
+        }
+    </script>
+</head>
+<body>
+    <button onclick="toggleCalendar()">Open Calendar</button>
+    <div id="calendar" class="calendar">
+        <table>
+            <thead>
+                <tr>
+                    <th>Ma</th>
+                    <th>Di</th>
+                    <th>Wo</th>
+                    <th>Do</th>
+                    <th>Vr</th>
+                    <th>Za</th>
+                    <th>Zo</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="unavailable" onclick="toggleAvailability(this)">1</td>
+                    <td class="available" onclick="toggleAvailability(this)">2</td>
+                    <td class="available" onclick="toggleAvailability(this)">3</td>
+                    <td class="unavailable" onclick="toggleAvailability(this)">4</td>
+                    <td class="available" onclick="toggleAvailability(this)">5</td>
+                    <td class="unavailable" onclick="toggleAvailability(this)">6</td>
+                    <td class="unavailable" onclick="toggleAvailability(this)">7</td>
+                </tr>
+                <tr>
+                    <td class="unavailable" onclick="toggleAvailability(this)">8</td>
+                    <td class="available" onclick="toggleAvailability(this)">9</td>
+                    <td class="available" onclick="toggleAvailability(this)">10</td>
+                    <td class="unavailable" onclick="toggleAvailability(this)">11</td>
+                    <td class="available" onclick="toggleAvailability(this)">12</td>
+                    <td class="unavailable" onclick="toggleAvailability(this)">13</td>
+                    <td class="unavailable" onclick="toggleAvailability(this)">14</td>
+                </tr>
+                <!-- ... and so on for the rest of the month -->
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
