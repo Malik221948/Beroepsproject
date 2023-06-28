@@ -1,0 +1,168 @@
+/*bg kleur en flex-box */
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    font-family: Arial, sans-serif;
+    background: rgb(35, 54, 92);
+    background: linear-gradient(
+      180deg,
+      rgba(35, 54, 92, 1) 0%,
+      rgba(58, 88, 133, 1) 51%,
+      rgba(28, 45, 79, 1) 100%
+    );
+    color: white;
+    
+  }
+  /*hier laat ik de formulier en de info naar beneden met flex-wrap en geef ik breedte aan*/
+  .container {
+    display: flex; 
+    flex-wrap: wrap; 
+    justify-content: space-between;
+    align-items: flex-start;
+    max-width: 1200px;
+    width: 100%;
+    margin-top: 40px;
+  }
+  /*animate aan de calender */
+  .calendar-content {
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+  }
+  /*animate aan de calender */
+  .calendar-content.open {
+    opacity: 1;
+    pointer-events: auto;
+  }
+  /*animate aan de calender */
+  .calendar-content table td.selected {
+    background-color: #fff;
+    color: #333;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  /*animate aan de calender beschikbaar*/
+  .calendar-content table td.available {
+    transition: background-color 0.3s ease;
+  }
+  /*animate aan de calender niet beschikbaar */
+  .calendar-content table td.unavailable {
+    transition: background-color 0.3s ease;
+    background-color: rgb(210, 95, 95);
+    
+  }
+  /*animate met hover */
+  .calendar-content table td:hover {
+    background-color: rgba(144, 255, 159, 0.5);
+    cursor: pointer;
+  }
+  /*alles boven elekaar + achtergrond */
+  body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    font-family: Arial, sans-serif;
+    background: rgb(35, 54, 92);
+    background: linear-gradient(180deg, rgba(35, 54, 92, 1) 0%, rgba(58, 88, 133, 1) 51%, rgba(28, 45, 79, 1) 100%);
+    color: white;
+  }
+    /*hier laat ik de formulier en de info naar beneden met flex-wrap en geef ik breedte aan*/
+  .container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    max-width: 1200px;
+    width: 100%;
+    margin-top: 40px;
+  }
+    /*breedte + achtergrond + border alle 3*/
+  .camping-info,
+  .calendar,
+  .formu {
+    width: calc(50% - 20px);
+    margin: 10px;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+  }
+    /*maximaal breedte*/
+  .formu {
+    max-width: 400px;
+  }
+  /*midden + ruimte van boven*/
+  .formu h1 {
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  /*label block*/
+  .formu label {
+    display: block;
+    margin-bottom: 10px;
+  }
+  /*hier geeft ik alles wat er in de formuleir zit breedte en border van de kanten*/
+  .formu input,
+  .formu select,
+  .formu textarea {
+    width: 95%;
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+  }
+  .formu textarea {
+    resize: vertical;
+  }
+  /*input kleur + pointer*/
+  .formu input[type="submit"] {
+    background-color: #333;
+    color: #fff;
+    cursor: pointer;
+  }
+  /*animate met hover*/
+  .formu input[type="submit"]:hover {
+    background-color: #555;
+  }
+  /*ruimte + flex*/
+.tww2{
+  display: flex;
+  gap: 10px;
+}
+/*als er wordt geklikt zet het groen*/
+.calendar-content table .available.selected {
+  background-color: rgb(37, 155, 37);
+  color: white;
+}
+/*voor kleiner scherm*/
+@media (max-width: 700px) {
+  .formu h1{
+font-size: 23px;
+  }
+body{
+  height: 1000px;
+}
+.inn{
+  width: 24rem;
+  height: 14rem;
+}
+  }
+.inn{
+  width: 34rem;
+  height: 24rem;
+}
+@media (max-width: 900px) {
+
+  .inn{
+    width: 16rem;
+    height: 9rem;
+  }
+}
+@media (max-width: 1200px) {
+
+  .inn{
+    width: 16rem;
+    height: 9rem;
+  }
+}

@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Aanmeldformulier activiteiten</title>
+  <style>
+    /*Hier zet ik de formulier in het midden flex-box en geef ik een achtergrond*/
+    body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+      background: rgb(35, 54, 92);
+    background: linear-gradient(
+      180deg,
+      rgba(35, 54, 92, 1) 0%,
+      rgba(58, 88, 133, 1) 51%,
+      rgba(28, 45, 79, 1) 100%
+    );
+      font-family: Arial, sans-serif;
+    }
+    /*tekst in het midden*/
+    h1 {
+      text-align: center;
+    }
+    /*Formulier aanpasen breedte en ruimte van alle kanten*/
+    form {
+      width: 400px;
+      padding: 20px;
+      background-color: rgba(255, 255, 255, 0.2);
+      border-radius: 10px;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      animation: fade-in 1s ease-in-out;
+      margin-top: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      height: 550px;
+    }
+    /*hier geef ik de button een kluer en geef ik ruimte van boven */
+      .brown-button {
+      background-color: rgb(35, 54, 92);
+      color: white;
+      padding: 12px 20px;
+      font-size: 16px;
+      margin-top: 20px;
+    }
+    /*breedte input van de formulier + border + font*/
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"],
+    input[type="number"],
+    select {
+      width: 95%;
+      padding: 10px;
+      border: 2px solid black;
+      border-radius: 5px;
+      margin-bottom: 10px;
+      font-size: 16px;
+    }
+    select{
+      width: 101%;
+    }
+    /*hier geef ik de al placeholder de kleur gray*/
+    input[type="text"]::placeholder,
+    input[type="email"]::placeholder,
+    input[type="tel"]::placeholder,
+    input[type="number"]::placeholder,
+    select {
+      color: gray;
+    }
+    /*hier laat ik ruimte tussen divs*/
+    .form-group {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 10px;
+      
+    }
+    /*breedte input*/
+    .form-group input[type="text"],
+    .form-group input[type="number"] {
+      width: 48%;
+    }
+    /*margin van rechts*/
+    .form-group input[type="text"] {
+      margin-right: 4%;
+    }
+    /*ruimte tussen lable en input*/
+    .calendar-label {
+      margin-bottom: 5px;
+    }
+    /*ruimte tussen lable en input*/
+    .calendar-inputs {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 10px;
+    }
+    /*breedte calender*/
+    .calendar-inputs input[type="text"] {
+      width: 45%;
+      padding: 5px;
+      margin: 0;
+    }
+    .ui-state-bezet {
+      border: 2px solid red !important;
+    }
+    form{
+      display: flex;
+      align-items: start;
+    }
+    /*h1 kleur wit*/
+    h1{
+      color: white;
+    }
+    .ss{
+padding-left: 138px;
+    }
+    .calendar-label{
+      color: white;
+    }
+    
+  </style>
+  <!--verbinding met de volgende websites om gebruik te maken van de calender-->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <script>
+    /*calender maken een aanpassen zodat pebaalde dagen niet bischikbaar maken*/
+    $(function() {
+      var bezetteDagen = ["01-06-2023", "10-06-2023", "11-06-2023", "15-06-2023", "28-06-2023", "29-06-2023"];
+      $("#vertrek").datepicker({
+        dateFormat: "dd-mm-yy",
+        minDate: 0,
+        beforeShowDay: function(date) {
+          var formattedDate = $.datepicker.formatDate("dd-mm-yy", date);
+          if ($.inArray(formattedDate, bezetteDagen) !== -1) {
+            return [false, "ui-state-bezet", "Bezet"];
+          }
+          return [true];
+        },
+        onSelect: function(dateText) {
+          $("#vertrek").css("background-color", "#6C6557");
+        }
+      });
+      $("#aankomst").datepicker({
+        dateFormat: "dd-mm-yy",
+        minDate: 0,
+        beforeShowDay: function(date) {
+          var formattedDate = $.datepicker.formatDate("dd-mm-yy", date);
+          if ($.inArray(formattedDate, bezetteDagen) !== -1) {
+            return [false, "ui-state-bezet", "Bezet"];
+          }
+          return [true];
+        },
+        onSelect: function(dateText) {
+          $("#aankomst").css("background-color", "#6C6557");
+        }
+      });
+    });
+    /*html class selecteren*/
+    function printData() {
+      var voornaam = document.getElementById("voornaam").value;
+      var achternaam = document.getElementById("achternaam").value;
+      var telefoonnummer = document.getElementById("telefoonnummer").value;
+      var email = document.getElementById("email").value;
+      var activiteit = document.getElementById("activiteit").value;
+      var aantalGasten = document.getElementById("aantalGasten").value;
+      var vertrek = document.getElementById("vertrek").value;
+      var aankomst = document.getElementById("aankomst").value;
+      var afdrukvenster = window.open("", "", "width=600,height=600");
+      var afdrukHTML = "<h2>Ingevoerde gegevens:</h2>";
+      afdrukHTML += "<p><strong>Volledige Naam:</strong> " + voornaam + " " + achternaam + "</p>";
+      afdrukHTML += "<p><strong>Telefoonnummer:</strong> " + telefoonnummer + "</p>";
+      afdrukHTML += "<p><strong>E-mail:</strong> " + email + "</p>";
+      afdrukHTML += "<p><strong>Activiteit:</strong> " + activiteit + "</p>";
+      afdrukHTML += "<p><strong>Aantal Gasten:</strong> " + aantalGasten + "</p>";
+      afdrukHTML += "<p><strong>Vertrek Datum:</strong> " + vertrek + "</p>";
+      afdrukHTML += "<p><strong>Aankomst Datum:</strong> " + aankomst + "</p>";
+      afdrukvenster.document.write(afdrukHTML);
+      afdrukvenster.document.close();
+      afdrukvenster.print();
+    }
+  </script>
+</head>
+<body>
+  <!--formulier maken-->
+  <form action="#" method="POST">
+    <h1>Aanmeldformulier activiteiten</h1>
+    <div class="form-group">
+      <input type="text" id="voornaam" name="voornaam" placeholder="Voornaam" required>
+      <input type="text" id="achternaam" name="achternaam" placeholder="Achternaam" required>
+    </div>
+    <input type="tel" id="telefoonnummer" name="telefoonnummer" placeholder="Telefoonnummer" required>
+    <input type="email" id="email" name="email" placeholder="E-mailadres" required>
+    <select id="activiteit" name="activiteit" required>
+        <option value="" disabled selected>Selecteer een activiteit:</option>  
+        <option value="mountainbiken">mountainbiken</option>
+        <option value="knutselen">Knutselen</option>
+        <option value="jeu_de_boele_wedstrijd">Jeu de Boele Wedstrijd</option>
+        <option value="water_aerobics">Water Aerobics</option>
+    </select>
+    <input type="number" id="aantalGasten" name="aantalGasten" placeholder="Aantal Gasten" required>
+    <div class="calendar-label">Vertrek/Aankomst Datum:</div>
+    <div class="calendar-inputs">
+      <input type="text" id="vertrek" name="vertrek" placeholder="dd-mm-jjjj" readonly required>
+      <input type="text" id="aankomst" name="aankomst" placeholder="dd-mm-jjjj" readonly required>
+    </div>
+      <div class="ss">
+    <input type="button" class="brown-button" value="Versturen →" onclick="printData()">
+  </div> </form>
+</body>
+</html>
+

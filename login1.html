@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Login</title>
+  <style>
+    /*Hier zet ik de formulier in het midden + achtergrond + hoogte aangegegeven met vh*/
+    body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+      background: rgb(35, 54, 92);
+    background: linear-gradient(180deg, rgba(35, 54, 92, 1) 0%, rgba(58, 88, 133, 1) 51%, rgba(28, 45, 79, 1) 100%);
+      font-family: Arial, sans-serif;
+    }
+    /*Hier zet ik de h1 tekst in het midden*/
+    h1 {
+      text-align: center;
+    }
+    /*aanpasen van de formulier + achtergrond + flex-box van de formulier*/
+    form {
+      width: 400px;
+      padding: 20px;
+      background-color: rgb(52, 70, 105);
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      animation: fade-in 1s ease-in-out;
+      margin-top: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      height: 550px;
+      background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+    }
+    /*De input verzend aanpasen font - achtergrond - tekst kleur*/
+    .brown-button {
+      background-color: white;
+      color: black;
+      padding: 12px 20px;
+      font-size: 16px;
+      margin-top: 20px;
+      
+    }
+    /*input breedte aanpasen en kleur geven + border */
+    input[type="email"],
+    input[type="text"],
+    select {
+      width: 50%;
+      padding: 10px;
+      border: 2px solid black;
+      border-radius: 5px;
+      margin-bottom: 10px;
+      font-size: 16px;
+    }
+    /*Hier geef ik de placeholder de kleur gray*/
+    input[type="email"]::placeholder,
+    input[type="text"]::placeholder,
+    select {
+      color: gray;
+    }
+    /*Spatie tussen input en 10px ruimte van beneden */
+    .form-group {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 10px;
+    }
+    /*breedte input*/
+    .form-group input[type="email"],
+    .form-group input[type="text"] {
+      width: 90%;
+    }
+    .form-group input[type="text"] {
+      margin-right: 4%;
+    }
+    /*hier geef ik de submit knop de kleur wit*/
+    
+    .ant a {
+      color: rgb(238, 235, 235);
+}
+.booknow2{
+  padding-top: 40px;
+}
+h1{
+  color: white;
+}
+
+  </style>
+  </head>
+  <body>
+    <form action="form.html" method="POST">
+      <h1>Login</h1>
+      <div class="form-group">
+        <input type="email" id="email" name="email" placeholder="E-mail" required>
+      </div>
+      <input type="text" id="password" name="password" placeholder="password" required>
+      </div>
+      <input type="submit" class="brown-button" value="Login →" onclick="printData()"><div class="ant">
+        <div class="booknow2">
+      <a href="account1.html" class="booknow">geen account?Click hier</a></div>
+    </div>
+    </form>
+  </body>
+  </html>
+  
+  
